@@ -42,27 +42,32 @@ body.dark-mode{
   display: block;
 }
 
-#cat-start{
+.cat-start{
   padding: 8px;
   vertical-align: middle;
   border: 4px solid aliceblue;
   border-radius: 10px 10px 0px 0px;
 }
 
-.cat textarea{
-  border-radius: 15px;
+.cat input{
+  border: 0px;
   resize: none;
   width: 25%;
-  height: 55px;
+  height: 30px;
 }
 
-#cat-start+*{
+.cat-start+*{
   padding: 5px;
   border: 5px solid aliceblue;
   border-width: 0px 5px 0px 5px;
 }
 
-#cat-end{
+.cat-input{
+  padding: 8px;
+  font-size: .6EM;
+}
+
+.cat-end{
   padding: 5px;
   border: 4px solid aliceblue;
   border-radius: 0px 0px 10px 10px;
