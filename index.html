@@ -25,9 +25,9 @@
           Texto2
         </div>
         <div id="sidebar-end">
-          Renda: R$123.456.789,00 <br>
+          Renda: R$<b id='income'>12345678.90</b><br>
           Despesas: R$<b id="spendingst">123.456.789,00</b> <br>
-          Total: R$ <b id="finals">0</b>
+          Total: R$<b id="finals">0</b>
         </div>
       </aside>
     </div>
@@ -45,30 +45,10 @@
           Total: R$12421874892374823
         </div>
       </div>
-      <div id="casa" class="cat">
-        <div class="cat-start" style="background-color: rgb(191, 0, 0);">
+      <div id="alimentacao" class="cat">
+        <div class="cat-start" style="background-color: rgb(0, 107, 213);">
           <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/640px-Unofficial_JavaScript_logo_2.svg.png" alt="" width="5%">
-          CASA
-        </div>
-        <div class="cat-input">
-          Aluguel
-          <input type="text">
-        </div>
-        <div class="cat-input">
-          Aluguel
-          <input type="text">
-        </div>
-        <div class="cat-input">
-          Aluguel
-          <input type="text">
-        </div>
-        <div class="cat-input">
-          Aluguel
-          <input type="text">
-        </div>
-        <div class="cat-input">
-          Aluguel
-          <input type="text">
+          Alimentação
         </div>
         <div class="cat-input">
           Aluguel
@@ -83,24 +63,20 @@
         </div>
       </div>
       <div id="casa" class="cat">
-        <div class="cat-start" style="background-color: rgb(191, 0, 0);">
+        <div class="cat-start" style="background-color: rgb(76, 0, 191);">
           <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/640px-Unofficial_JavaScript_logo_2.svg.png" alt="" width="5%">
-          CASA
+          Impostron
         </div>
         <div class="cat-input">
-          Aluguel
+          IPTU
           <input type="text">
         </div>
         <div class="cat-input">
-          Aluguel
+          IPVA
           <input type="text">
         </div>
         <div class="cat-input">
-          Aluguel
-          <input type="text">
-        </div>
-        <div class="cat-input">
-          Aluguel
+          Renda
           <input type="text">
         </div>
         <div class="cat-end">
@@ -121,18 +97,40 @@
   }
   function updateVals(val){
     let value = val.currentTarget.value
+    value = value.replace(",", "")
     if(Number.isNaN(value) || value == ""){
       console.log("Not a Number, swapping to zilch.")
       valuesl[val.currentTarget.parentElement.getAttribute('identifier')] = 0
     }
     else{
-      valuesl[val.currentTarget.parentElement.getAttribute('identifier')] = parseInt(value)
+      valuesl[val.currentTarget.parentElement.getAttribute('identifier')] = parseFloat(value)
     }
     finalvalue = 0
-      for(let i=0; i < valuesl.length; i++){
-        finalvalue = finalvalue + valuesl[i]
-        document.getElementById('spendingst').innerHTML = finalvalue
+    for(let i=0; i < $('.cat').length; i++){
+      let ttotal = 0
+      for(const kid of document.getElementsByClassName('cat')[i].children){
+        for(const e of kid.querySelectorAll('input')){
+          if(isNaN(e.value) || e.value <= 0){
+            ttotal += 0;
+          }
+          else{
+            ttotal += parseFloat(e.value)
+          }
+        }
       }
+      document.getElementsByClassName('cat')[i].querySelector('.cat-end').innerHTML = `Total: R$${ttotal.toLocaleString('br', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`
+    }
+    for(let i=0; i < valuesl.length; i++){
+      finalvalue = finalvalue + valuesl[i]
+      document.getElementById('spendingst').innerHTML = finalvalue
+    }
+    document.getElementById('finals').innerHTML = Math.floor((parseFloat(document.getElementById('income').innerHTML) - finalvalue)*100)/100
+    if(parseFloat(document.getElementById('finals').innerHTML) < 0){
+      document.getElementById('finals').style.color = 'rgb(255,0,0)'
+    }
+    else{
+      document.getElementById('finals').style.color = 'aliceblue'
+    }
   }
 </script>
 
