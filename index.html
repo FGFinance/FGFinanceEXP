@@ -31,6 +31,17 @@
         </div>
       </aside>
     </div>
+    <div id="income" class="cat"> 
+      <div class="cat-start" style="background-color: rgb(12, 177, 0);">
+        RENDA MENSAL
+      </div>
+      <div class="cat-input">
+        Renda Fixa <input type="number" name="" id="">
+      </div>
+      <div class="cat-end">
+        Total: R$0000000
+      </div>
+    </div>
     <div id="cats">
       <div id="casa" class="cat">
         <div class="cat-start" style="background-color: rgb(191, 0, 0);">
@@ -39,7 +50,7 @@
         </div>
         <div class="cat-input">
           Aluguel
-          <input type="text">
+          <input type="number">
         </div>
         <div class="cat-end">
           Total: R$12421874892374823
@@ -52,32 +63,32 @@
         </div>
         <div class="cat-input">
           Aluguel
-          <input type="text">
+          <input type="number">
         </div>
         <div class="cat-input">
           Aluguel
-          <input type="text">
+          <input type="number">
         </div>
         <div class="cat-end">
           Total: R$12421874892374823
         </div>
       </div>
-      <div id="casa" class="cat">
+      <div id="imposto" class="cat">
         <div class="cat-start" style="background-color: rgb(76, 0, 191);">
           <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/640px-Unofficial_JavaScript_logo_2.svg.png" alt="" width="5%">
           Impostron
         </div>
         <div class="cat-input">
           IPTU
-          <input type="text">
+          <input type="number">
         </div>
         <div class="cat-input">
           IPVA
-          <input type="text">
+          <input type="number">
         </div>
         <div class="cat-input">
           Renda
-          <input type="text">
+          <input type="number">
         </div>
         <div class="cat-end">
           Total: R$12421874892374823
@@ -88,8 +99,14 @@
 </body>
 
 <script>
-  let valuesl = [0,0,0,0,0,0,0,0,0,0,0]
+  let valuesl = {
+    "income": [0,0,0,0],
+    "casa": [0,0,0,0],
+    "alimentacao": [0,0,0,0],
+    "imposto": [0,0,0,0]
+  }
   let finalvalue = 0
+  let incomium = 0
   let set = 0
   for(let i=0; i < $('.cat-input').length; i++){
     document.getElementsByClassName('cat-input')[i].setAttribute('identifier', i)
@@ -100,10 +117,10 @@
     value = value.replace(",", "")
     if(Number.isNaN(value) || value == ""){
       console.log("Not a Number, swapping to zilch.")
-      valuesl[val.currentTarget.parentElement.getAttribute('identifier')] = 0
+      valuesl[val.currentTarget.parentElement.parentElement.getAttribute("id")][val.currentTarget.parentElement.getAttribute('identifier')] = 0
     }
     else{
-      valuesl[val.currentTarget.parentElement.getAttribute('identifier')] = parseFloat(value)
+      valuesl[val.currentTarget.parentElement.parentElement.getAttribute("id")][val.currentTarget.parentElement.getAttribute('identifier')] = parseFloat(value)
     }
     finalvalue = 0
     for(let i=0; i < $('.cat').length; i++){
@@ -120,10 +137,25 @@
       }
       document.getElementsByClassName('cat')[i].querySelector('.cat-end').innerHTML = `Total: R$${ttotal.toLocaleString('br', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`
     }
+    if(val.currentTarget.parentElement.parentElement.getAttribute("id") == "income"){
+      for(let i=0; i < valuesl["income"].length; i++){
+        incomium = incomium + valuesl["income"][i]
+        document.getElementById('income').innerHTML = incomium
+      }
+   }
+   else{
     for(let i=0; i < valuesl.length; i++){
-      finalvalue = finalvalue + valuesl[i]
-      document.getElementById('spendingst').innerHTML = finalvalue
+      if(valuesl[i] == "income"){
+        console.log('nah')
+        return
+      }else{
+        for(let x=0; i < valuesl[i].length; x++){
+        finalvalue = finalvalue + valuesl[i][x]
+        document.getElementById('spendingst').innerHTML = 'AAAAAAAAA'
+        }
+      }
     }
+   }
     document.getElementById('finals').innerHTML = Math.floor((parseFloat(document.getElementById('income').innerHTML) - finalvalue)*100)/100
     if(parseFloat(document.getElementById('finals').innerHTML) < 0){
       document.getElementById('finals').style.color = 'rgb(255,0,0)'
