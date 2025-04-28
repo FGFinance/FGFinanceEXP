@@ -31,18 +31,19 @@
         </div>
       </aside>
     </div>
-    <div id="income" class="cat"> 
-      <div class="cat-start" style="background-color: rgb(12, 177, 0);">
-        RENDA MENSAL
-      </div>
-      <div class="cat-input">
-        Renda Fixa <input type="number" name="" id="">
-      </div>
-      <div class="cat-end">
-        Total: R$0000000
-      </div>
-    </div>
+    
     <div id="cats">
+      <div id="income" class="cat"> 
+        <div class="cat-start" style="background-color: rgb(12, 177, 0);">
+          RENDA MENSAL
+        </div>
+        <div class="cat-input">
+          Renda Fixa <input type="number" name="" id="">
+        </div>
+        <div class="cat-end">
+          Total: R$0
+        </div>
+      </div>
       <div id="casa" class="cat">
         <div class="cat-start" style="background-color: rgb(191, 0, 0);">
           <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/640px-Unofficial_JavaScript_logo_2.svg.png" alt="" width="5%">
@@ -53,7 +54,7 @@
           <input type="number">
         </div>
         <div class="cat-end">
-          Total: R$12421874892374823
+          Total: R$0
         </div>
       </div>
       <div id="alimentacao" class="cat">
@@ -70,28 +71,41 @@
           <input type="number">
         </div>
         <div class="cat-end">
-          Total: R$12421874892374823
+          Total: R$0
         </div>
       </div>
-      <div id="imposto" class="cat">
-        <div class="cat-start" style="background-color: rgb(76, 0, 191);">
+      <div id="saude" class="cat">
+        <div class="cat-start" style="background-color: rgb(0, 107, 213);">
           <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/640px-Unofficial_JavaScript_logo_2.svg.png" alt="" width="5%">
-          Impostron
+          Saúde
         </div>
         <div class="cat-input">
-          IPTU
+          Aluguel
           <input type="number">
         </div>
         <div class="cat-input">
-          IPVA
-          <input type="number">
-        </div>
-        <div class="cat-input">
-          Renda
+          Aluguel
           <input type="number">
         </div>
         <div class="cat-end">
-          Total: R$12421874892374823
+          Total: R$0
+        </div>
+      </div>
+      <div id="transporte" class="cat">
+        <div class="cat-start" style="background-color: rgb(0, 107, 213);">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/640px-Unofficial_JavaScript_logo_2.svg.png" alt="" width="5%">
+          Transporte
+        </div>
+        <div class="cat-input">
+          Aluguel
+          <input type="number">
+        </div>
+        <div class="cat-input">
+          Aluguel
+          <input type="number">
+        </div>
+        <div class="cat-end">
+          Total: R$0
         </div>
       </div>
     </div>
@@ -103,7 +117,8 @@
     "income": [0,0,0,0],
     "casa": [0,0,0,0],
     "alimentacao": [0,0,0,0],
-    "imposto": [0,0,0,0]
+    "saude": [0,0,0,0],
+    "transporte": [0,0,0,0]
   }
   let finalvalue = 0
   let incomium = 0
@@ -122,7 +137,10 @@
     else{
       valuesl[val.currentTarget.parentElement.parentElement.getAttribute("id")][val.currentTarget.parentElement.getAttribute('identifier')] = parseFloat(value)
     }
+
     finalvalue = 0
+    incomium = 0
+
     for(let i=0; i < $('.cat').length; i++){
       let ttotal = 0
       for(const kid of document.getElementsByClassName('cat')[i].children){
@@ -137,6 +155,8 @@
       }
       document.getElementsByClassName('cat')[i].querySelector('.cat-end').innerHTML = `Total: R$${ttotal.toLocaleString('br', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`
     }
+
+    console.log(val.currentTarget.parentElement.parentElement.getAttribute("id"))
     if(val.currentTarget.parentElement.parentElement.getAttribute("id") == "income"){
       for(let i=0; i < valuesl["income"].length; i++){
         incomium = incomium + valuesl["income"][i]
@@ -144,15 +164,14 @@
       }
    }
    else{
-    for(let i=0; i < valuesl.length; i++){
-      if(valuesl[i] == "income"){
-        console.log('nah')
-        return
-      }else{
-        for(let x=0; i < valuesl[i].length; x++){
+    for(i in valuesl){
+      console.log(i)
+      if(i=="income"){
+        continue;
+      }
+      for(let x=0; x < valuesl[i].length; x++){
         finalvalue = finalvalue + valuesl[i][x]
-        document.getElementById('spendingst').innerHTML = 'AAAAAAAAA'
-        }
+        document.getElementById('spendingst').innerHTML = finalvalue
       }
     }
    }
