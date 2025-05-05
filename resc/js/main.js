@@ -1,4 +1,4 @@
-let valuesl = {
+let valtable = {
   "income": [],
   "casa": [],
   "alimentacao": [],
@@ -8,43 +8,46 @@ let valuesl = {
 let totals = {}
 let finalvalue = 0
 let incomium = 0
-let set = 0
+
 document.querySelectorAll('.cat-input').forEach(i => {
   const siblings = Array.from(i.parentNode.querySelectorAll('.cat-input'));
   const index = siblings.indexOf(i);
-  valuesl[i.parentElement.getAttribute('id')].push(0)
+  valtable[i.parentElement.getAttribute('id')].push(0)
   i.setAttribute('identifier', index)
   i.childNodes[1].addEventListener('input', updateVals)
 })
-function updateVals(val) {
+
+function updateVals(val){
   let value = val.currentTarget.value
   value = value.replace(",", "")
   if (Number.isNaN(value) || value == "") {
     console.log("Not a Number, swapping to zilch.")
-    valuesl[val.currentTarget.parentElement.parentElement.getAttribute("id")][val.currentTarget.parentElement.getAttribute('identifier')] = 0
+    valtable[val.currentTarget.parentElement.parentElement.getAttribute("id")][val.currentTarget.parentElement.getAttribute('identifier')] = 0
   }
   else {
-    valuesl[val.currentTarget.parentElement.parentElement.getAttribute("id")][val.currentTarget.parentElement.getAttribute('identifier')] = parseFloat(value)
+    valtable[val.currentTarget.parentElement.parentElement.getAttribute("id")][val.currentTarget.parentElement.getAttribute('identifier')] = parseFloat(value)
   }
+  updatePage()
+}
+
+function updatePage() {
 
   finalvalue = 0
   incomium = 0
 
-  for (i in valuesl) {
+  for (i in valtable) {
     let total = 0
-    for (let x = 0; x < valuesl[i].length; x++) {
-      total += valuesl[i][x]
-      console.log(total)
+    for (let x = 0; x < valtable[i].length; x++) {
+      total += valtable[i][x]
     }
     totals[i] = total;
     if (i != "income") { finalvalue += total } else { incomium = total }
   }
   
-  for (i in valuesl) {
+  for (i in valtable) {
     let total = totals[i];
     let percent = (i !== "income" && finalvalue !== 0) ? (total / finalvalue * 100).toFixed(1) : '';
     let extra = percent ? ` - ${percent}%` : '';
-    console.log(total)
     document.getElementById(i).querySelectorAll('.cat-end')[0].innerHTML = `Total: R$${total.toLocaleString('br', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ${extra}`;
   }
   
@@ -61,3 +64,5 @@ function updateVals(val) {
     document.getElementById('finals').style.color = 'aliceblue'
   }
 }
+
+updatePage()
