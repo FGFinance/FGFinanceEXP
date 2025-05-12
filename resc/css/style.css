@@ -2,6 +2,8 @@
 
 :root{
   --universalbackground: rgb(220, 220, 220);
+  --universalbackgrounda: rgba(209, 209, 209, 0.85);
+  --accent: rgb(100,0,0);
   --universalbackd: rgb(200,200,200);
   --universalbackd2: rgb(180,180,180);
   --universalblack: rgb(10,10,10);
@@ -11,6 +13,7 @@
 
 body.dark-mode{
   --universalbackground: rgb(26, 26, 26);
+  --universalbackgrounda: rgba(26, 26, 26, 0.85);
   --universalblack: rgb(10, 10, 10);
   --universalfont: rgb(229, 229, 229);
   --universalbackd: rgb(20,20,20);
@@ -57,8 +60,8 @@ header{
 
 #modeswitchb{
   font-size: .5em;
-  border: 2px solid var(--universalborder);
-  background-color: var(--universalbackd2);
+  border: 2px solid var(--universalbackd2);
+  background-color: var(--universalborder);
   border-radius: 50px;
 }
 
@@ -97,15 +100,7 @@ header{
 
 #cats{
   padding: 10PX;
-  background-color: rgb(29, 29, 29);
-  border: 2px solid rgb(61, 61, 61);
-  border-radius: 20px;
-  margin-right: 8px;
-}
-
-body.light-mode #cats{
-  padding: 10PX;
-  background-color: var(--universalbackd2);
+  background-color: var(--universalbackgrounda);
   border: 2px solid rgb(61, 61, 61);
   border-radius: 20px;
   margin-right: 8px;
