@@ -1,18 +1,35 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
+:root{
+  --universalbackground: rgb(220, 220, 220);
+  --universalbackd: rgb(200,200,200);
+  --universalbackd2: rgb(180,180,180);
+  --universalblack: rgb(10,10,10);
+  --universalfont: black;
+  --universalborder: rgb(6, 32, 28);
+}
+
+body.dark-mode{
+  --universalbackground: rgb(26, 26, 26);
+  --universalblack: rgb(10, 10, 10);
+  --universalfont: rgb(229, 229, 229);
+  --universalbackd: rgb(20,20,20);
+  --universalbackd2: rgb(10,10,10);
+  --universalborder: rgb(78, 78, 78);
+}
+
 body{
   padding: 0 0 25px 0;
   margin: 0 0 0 10px;
   font-family: 'Open Sans';
   background-image: url('/resc/svg/swiggity.svg');
+  background-color: var(--universalbackground);
+  color: var(--universalfont);
 }
 
-body.dark-mode{
-  background-color: rgb(10, 10, 10);
-  color: aliceblue;
-}
 h1{
   text-align: center;
+  margin: 20px;
 }
 
 header{
@@ -38,18 +55,26 @@ header{
   border: 3px, solid, aliceblue;
 }
 
+#modeswitchb{
+  font-size: .5em;
+  border: 2px solid var(--universalborder);
+  background-color: var(--universalbackd2);
+  border-radius: 50px;
+}
+
 #sidebar{
   float: right;
-  background-color: rgb(24, 24, 24);
+  background-color: var(--universalbackd);
   border-radius: 15px;
   width: 25%;
   margin-top: 10px;
   margin-right: 20px;
 }
+
 #sidebar-start{
-  border: 5px solid aliceblue;
+  border: 5px solid var(--universalborder);
   display: block;
-  background-color: rgb(37, 37, 37);
+  background-color: rgb(51, 148, 157);
   border-radius: 10px 10px 0px 0px;
   padding: 15px;
   text-align: center;
@@ -57,14 +82,14 @@ header{
 
 #sidebar-random{
   border-width: 0px 5px 0px 5px;
-  border-color: aliceblue;
+  border-color: var(--universalborder);
   border-style: solid;
   padding: 5px;
   height: 450px;
 }
 
 #sidebar-end{
-  border: 5px solid aliceblue;
+  border: 5px solid var(--universalborder);
   display: block;
   border-radius: 0px 0px 10px 10px;
   padding: 5px;
@@ -78,8 +103,16 @@ header{
   margin-right: 8px;
 }
 
+body.light-mode #cats{
+  padding: 10PX;
+  background-color: var(--universalbackd2);
+  border: 2px solid rgb(61, 61, 61);
+  border-radius: 20px;
+  margin-right: 8px;
+}
+
 #cats > *{
-  background-color: rgb(24, 24, 24);
+  background-color: var(--universalbackd);
   border-radius: 10px;
   padding: 0px;
   width: 70%;
@@ -89,7 +122,7 @@ header{
 .cat-start{
   padding: 8px;
   vertical-align: middle;
-  border: 4px solid aliceblue;
+  border: 4px solid var(--universalborder);
   border-radius: 10px 10px 0px 0px;
 }
 .cat img{
@@ -97,10 +130,10 @@ header{
 }
 
 .cat input{
-  border: 2px solid aliceblue;
+  border: 2px solid var(--universalborder);
   border-radius: 4px;
-  color: rgb(229, 229, 229);
-  background-color: rgb(39, 39, 39);
+  color: var(--universalfont);
+  background-color: var(--universalbackd2);
   resize: none;
   width: 25%;
   height: 30px;
@@ -110,13 +143,13 @@ header{
   padding: 8px;
   display: block;
   padding: 5px;
-  border: 5px solid aliceblue;
+  border: 5px solid var(--universalborder);
   border-width: 0px 5px 0px 5px;
 }
 
 .cat-end{
   padding: 5px;
-  border: 4px solid aliceblue;
+  border: 4px solid var(--universalborder);
   border-radius: 0px 0px 10px 10px;
   margin-bottom: 15px;
 }

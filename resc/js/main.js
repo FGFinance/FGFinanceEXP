@@ -18,15 +18,13 @@ document.querySelectorAll('.cat-input').forEach(i => {
 })
 
 function updateVals(val){
-  let value = val.currentTarget.value
-  value = value.replace(",", "")
-  if (Number.isNaN(value) || value == "") {
-    console.log("Not a Number, swapping to zilch.")
-    valtable[val.currentTarget.parentElement.parentElement.getAttribute("id")][val.currentTarget.parentElement.getAttribute('identifier')] = 0
-  }
-  else {
-    valtable[val.currentTarget.parentElement.parentElement.getAttribute("id")][val.currentTarget.parentElement.getAttribute('identifier')] = parseFloat(value)
-  }
+  let value = (val.currentTarget.value).replace(",", "")
+  const valtargetcat = val.currentTarget.parentElement.parentElement.getAttribute('id')
+  const valtargetident = val.currentTarget.parentElement.getAttribute('identifier')
+
+  valtable[valtargetcat][valtargetident] = Number.isNaN(val) || value == "" ? 0 : parseFloat(value)
+  //God i love ternaries.
+
   updatePage()
 }
 
@@ -61,8 +59,14 @@ function updatePage() {
     document.getElementById('finals').style.color = 'rgb(255,0,0)'
   }
   else {
-    document.getElementById('finals').style.color = 'aliceblue'
+    document.getElementById('finals').style.color = 'var(--universalfont)'
   }
+}
+
+function switchMode(){
+  const cmode = document.body.className
+  const nmode = cmode == "light-mode" ? "dark-mode" : "light-mode"
+  document.body.className = nmode
 }
 
 updatePage()
