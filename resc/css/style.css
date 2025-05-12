@@ -9,6 +9,7 @@
   --universalblack: rgb(10,10,10);
   --universalfont: black;
   --universalborder: rgb(6, 32, 28);
+  --rslogo: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="30"><text x="5" y="19" style="font: bold 16px Arial;">R$</text></svg>');
 }
 
 body.dark-mode{
@@ -19,6 +20,7 @@ body.dark-mode{
   --universalbackd: rgb(20,20,20);
   --universalbackd2: rgb(10,10,10);
   --universalborder: rgb(78, 78, 78);
+  --rslogo: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="30"><text fill="white" x="5" y="19" style="font: bold 16px Arial;">R$</text></svg>');
 }
 
 body{
@@ -125,13 +127,21 @@ header{
 }
 
 .cat input{
+  background: var(--rslogo) no-repeat;
   border: 2px solid var(--universalborder);
   border-radius: 4px;
   color: var(--universalfont);
   background-color: var(--universalbackd2);
   resize: none;
   width: 25%;
+  font-size: .8em;
   height: 30px;
+  padding-left: 28px;
+  padding-bottom: 2px;
+}
+
+.fillertext{
+  position: absolute;
 }
 
 .cat-input{
