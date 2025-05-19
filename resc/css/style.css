@@ -89,7 +89,8 @@ header{
   border-width: 0px 5px 0px 5px;
   border-color: var(--universalborder);
   border-style: solid;
-  padding: 5px;
+  font-size: 1em;
+  padding: 10px;
   height: 450px;
 }
 
