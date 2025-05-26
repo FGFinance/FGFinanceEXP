@@ -1,31 +1,40 @@
-let valtable = {
+let valtable = { //Each table item
   "income": [],
   "casa": [],
   "alimentacao": [],
   "saude": [],
   "transporte": [],
+  "lazer": []
 }
-let format = {
+
+let format = { //How each table item should display formally
   "income": "Renda",
   "casa": "Casa",
   "alimentacao": "Alimentação",
   "saude": "Saúde",
   "transporte": "Transorte",
+  "lazer": "Lazer"
 }
-let totals = {}
-let finalvalue = 0
-let incomium = 0
 
-document.querySelectorAll('.cat-input').forEach(i => {
+let tabWarn = { //How many % you can spend in each 
+
+}
+
+let totals = {} //Total of each category, used for parsing percentages
+let finalvalue = 0 //Final value, duh.
+let incomium = 0 //The total income amount
+
+document.querySelectorAll('.cat-input').forEach(i => { //For each input section present in the page...
   const siblings = Array.from(i.parentNode.querySelectorAll('.cat-input'));
   const index = siblings.indexOf(i);
   valtable[i.parentElement.getAttribute('id')].push(0)
   i.setAttribute('identifier', index)
   i.childNodes[1].addEventListener('input', updateVals)
+  i.childNodes[1].setAttribute('value', 0.00)
 })
 
 function updateVals(val){
-  let value = (val.currentTarget.value).replace(",", "")
+  let value = (val.currentTarget.value).replace(",", "") //Replace the , with  .
   const valtargetcat = val.currentTarget.parentElement.parentElement.getAttribute('id')
   const valtargetident = val.currentTarget.parentElement.getAttribute('identifier')
   const isdeduct = val.currentTarget.parentElement.getAttribute('deduct')
@@ -36,7 +45,6 @@ function updateVals(val){
 }
 
 function updatePage() {
-
   let text = ''
   finalvalue = 0
   incomium = 0
@@ -54,6 +62,12 @@ function updatePage() {
     let total = totals[i];
     let percent = (i !== "income" && finalvalue !== 0) ? (total / finalvalue * 100).toFixed(1) : '';
     let extra = percent ? ` - ${percent}%` : '';
+    console.log(parseFloat(document.getElementById('finals').innerHTML))
+    console.log(incomium * 0.15)
+    if(parseFloat(document.getElementById('finals').innerHTML >= (incomium * 0.15))){
+      console.log("WOOP WOOP!")
+      handleWarning(i, percent)
+    }
     if(i!='income'){text = text + `${i == 'casa' ? "" : "<br>"}` + `${format[i]}: R$${total.toLocaleString('br', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ${extra}`}
     document.getElementById('catover').innerHTML = text
     document.getElementById(i).querySelectorAll('.cat-end')[0].innerHTML = `Total: R$${total.toLocaleString('br', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ${extra}`;
@@ -78,6 +92,10 @@ function switchMode(){
   const nmode = cmode == "light-mode" ? "dark-mode" : "light-mode"
   document.body.className = nmode
   document.getElementById("modeswitchb").innerHTML = nmode == "dark-mode" ? "☀️" : "🌙"
+}
+
+function handleWarning(){
+  console.log("Unimplemented.")
 }
 
 updatePage()
