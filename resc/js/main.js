@@ -25,7 +25,7 @@ let tabWarn = { //How many % you can spend in each
 }
 
 let listOfSwears = {
-  "casa": "Enquanto os gastos em casa são importantes, precisa garantir que não está gastando muito. Tente gastar",
+  "casa": "Enquanto os gastos em casa são importantes, precisa garantir que não está gastando muito. Tente gastar menos.",
   "alimentacao": 25,
   "saude": 15,
   "transporte": 15,
@@ -109,7 +109,7 @@ function handleWarning(){
     let percent = (i !== "income" && finalvalue !== 0) ? (total / finalvalue * 100).toFixed(1) : 0;
     if(i !== 'income' && percent >= tabWarn[i] && (totfinal < (incomium * 0.15))){
       document.getElementById(i).querySelectorAll('.cat-end')[0].style.color = 'rgb(208, 0, 0)'
-      document.getElementById(i).querySelectorAll('.cat-end')[0].innerHTML += ` <i class="smalluseless">bad</i>`
+      document.getElementById(i).querySelectorAll('.cat-end')[0].innerHTML += ` <i class="smalluseless">${listOfSwears[i]}</i>`
     }else{
       document.getElementById(i).querySelectorAll('.cat-end')[0].style.color = 'var(--universalfont)'
     }
