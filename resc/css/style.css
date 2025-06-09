@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root{
   --universalbackground: rgb(220, 220, 220);
@@ -20,13 +20,13 @@ body.dark-mode{
   --universalbackd: rgb(20,20,20);
   --universalbackd2: rgb(10,10,10);
   --universalborder: rgb(78, 78, 78);
-  --rslogo: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="30"><text fill="white" x="5" y="19" style="font: bold 16px Arial;">R$</text></svg>');
+  --rslogo: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="30"><text fill="white" x="5" y="17.6" style="font: 14px Arial;">R$</text></svg>');
 }
 
 body{
   padding: 0 0 25px 0;
   margin: 0 0 0 10px;
-  font-family: 'Open Sans';
+  font-family: 'Noto Sans';
   background-image: url('/resc/svg/swiggity.svg');
   background-color: var(--universalbackground);
   color: var(--universalfont);
@@ -183,4 +183,20 @@ header{
   height: 40px;
   -webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
   transform: rotate(-90deg);
+}
+
+.smalluseless{
+  font-size: 0.6em;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }
