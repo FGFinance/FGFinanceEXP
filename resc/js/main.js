@@ -25,11 +25,11 @@ let tabWarn = { //How many % you can spend in each
 }
 
 let listOfSwears = {
-  "casa": "Enquanto os gastos em casa são importantes, precisa garantir que não está gastando muito. Tente gastar menos.",
-  "alimentacao": 25,
-  "saude": 15,
-  "transporte": 15,
-  "lazer": 10
+  "casa": "<br>Enquanto os gastos em casa são importantes, precisa garantir que não está gastando muito. Tente gastar menos em áreas como Internet ou Telefone.",
+  "alimentacao": "<br>",
+  "saude": "<br>Saúde é importante, porém os gastos nesse setor estão anormais. Considere verificar aonde seu dinheiro esta indo.",
+  "transporte": "<br>",
+  "lazer": "<br>",
 }
 
 let totals = {} //Total of each category, used for parsing percentages
