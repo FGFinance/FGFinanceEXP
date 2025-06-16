@@ -38,4 +38,4 @@ function setCookie(name, value) {
   document.cookie = name + "=" + value + ";" + expires + ";path=/";
 }
 
-Startup()
+startup()
