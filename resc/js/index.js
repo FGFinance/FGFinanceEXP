@@ -9,7 +9,7 @@ function switchMode(){
 function Startup(){
     const darkval = getCookie("lmode")
     if(darkval != ""){
-        const nmode = cmode == "light-mode" ? "dark-mode" : "light-mode"
+        const nmode = darkval == "light-mode" ? "dark-mode" : "light-mode"
         document.body.className = nmode
         document.getElementById("modeswitchb").innerHTML = nmode == "dark-mode" ? "☀️" : "🌙"
     }else{

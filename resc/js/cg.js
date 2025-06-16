@@ -1,4 +1,4 @@
-let valtable = { //Each table item
+let valtable = { //Each table item.
   "income": [],
   "casa": [],
   "alimentacao": [],
@@ -7,7 +7,7 @@ let valtable = { //Each table item
   "lazer": []
 }
 
-let format = { //How each table item should display formally
+let format = { //How each table item should display formally.
   "income": "Renda",
   "casa": "Casa",
   "alimentacao": "Alimentação",
@@ -16,7 +16,7 @@ let format = { //How each table item should display formally
   "lazer": "Lazer"
 }
 
-let tabWarn = { //How many % you can spend in each 
+let tabWarn = { //How many % you can spend in each. 
   "casa": 35,
   "alimentacao": 25,
   "saude": 15,
@@ -24,7 +24,7 @@ let tabWarn = { //How many % you can spend in each
   "lazer": 10
 }
 
-let listOfSwears = {
+let listOfSwears = { //String that should be displayed when tabWarn treshold is met.
   "casa": "<br>Enquanto os gastos em casa são importantes, precisa garantir que não está gastando muito. Tente gastar menos em áreas como Internet ou Telefone.",
   "alimentacao": "<br>",
   "saude": "<br>Saúde é importante, porém os gastos nesse setor estão anormais. Considere verificar aonde seu dinheiro esta indo.",
@@ -35,7 +35,7 @@ let listOfSwears = {
 let totals = {} //Total of each category, used for parsing percentages
 let finalvalue = 0 //Final value, duh.
 let incomium = 0 //The total income amount
-let totfinal = 0
+let totfinal = 0 //The total final amount.
 
 document.querySelectorAll('.cat-input').forEach(i => { //For each input section present in the page...
   const siblings = Array.from(i.parentNode.querySelectorAll('.cat-input'));
@@ -99,6 +99,7 @@ function updatePage() {
 function switchMode(){
   const cmode = document.body.className
   const nmode = cmode == "light-mode" ? "dark-mode" : "light-mode"
+  setCookie("lmode", nmode)
   document.body.className = nmode
   document.getElementById("modeswitchb").innerHTML = nmode == "dark-mode" ? "☀️" : "🌙"
 }
@@ -116,4 +117,37 @@ function handleWarning(){
   }
 }
 
+function startup(){
+  const darkval = getCookie("lmode")
+    if(darkval != ""){
+        const nmode = darkval == "light-mode" ? "dark-mode" : "light-mode"
+        document.body.className = nmode
+        document.getElementById("modeswitchb").innerHTML = nmode == "dark-mode" ? "☀️" : "🌙"
+    }else{
+        setCookie("lmode", "light-mode")
+    }
+}
+
+function getCookie(name) {
+  let name = cname + "=";
+  let ca = document.cookie.split(';');
+  for(let i = 0; i < ca.length; i++) { let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1)
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length)
+    }
+  }
+  return "";
+}
+
+function setCookie(name, value) {
+  const d = new Date();
+  d.setTime(d.getTime() + (60 * 24 * 60 * 60 * 1000));
+  let expires = "expires="+d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
 updatePage()
+startup()
