@@ -6,15 +6,15 @@ function switchMode(){
   document.getElementById("modeswitchb").innerHTML = nmode == "dark-mode" ? "☀️" : "🌙"
 }
 
-function Startup(){
-    const darkval = getCookie("lmode")
-    if(darkval != ""){
-        const nmode = darkval == "light-mode" ? "dark-mode" : "light-mode"
-        document.body.className = nmode
-        document.getElementById("modeswitchb").innerHTML = nmode == "dark-mode" ? "☀️" : "🌙"
-    }else{
-        setCookie("lmode", "light-mode")
-    }
+function startup(){
+  const darkval = getCookie("lmode")
+  console.log(darkval)
+  if(darkval != ""){
+    document.body.className = darkval
+    document.getElementById("modeswitchb").innerHTML = darkval == "dark-mode" ? "☀️" : "🌙"
+  }else{
+    setCookie("lmode", "light-mode")
+  }
 }
 
 function getCookie(name) {
