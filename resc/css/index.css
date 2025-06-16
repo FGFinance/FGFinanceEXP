@@ -9,7 +9,6 @@
   --universalblack: rgb(10,10,10);
   --universalfont: black;
   --universalborder: rgb(6, 32, 28);
-  --rslogo: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="30"><text x="5" y="19" style="font: bold 16px Arial;">R$</text></svg>');
 }
 
 body.dark-mode{
@@ -20,7 +19,6 @@ body.dark-mode{
   --universalbackd: rgb(20,20,20);
   --universalbackd2: rgb(10,10,10);
   --universalborder: rgb(78, 78, 78);
-  --rslogo: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="30"><text fill="white" x="5" y="17.6" style="font: 14px Arial;">R$</text></svg>');
 }
 
 body{
