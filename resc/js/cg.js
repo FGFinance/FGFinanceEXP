@@ -119,25 +119,18 @@ function handleWarning(){
 
 function startup(){
   const darkval = getCookie("lmode")
-  console.log(darkval)
   if(darkval != ""){
     document.body.className = darkval
     document.getElementById("modeswitchb").innerHTML = darkval == "dark-mode" ? "☀️" : "🌙"
-  }else{
-    setCookie("lmode", "light-mode")
-  }
+  }else{ setCookie("lmode", "light-mode") }
 }
 
 function getCookie(name) {
   let dname = name + "=";
   let ca = document.cookie.split(';');
   for(let i = 0; i < ca.length; i++) { let c = ca[i];
-    while (c.charAt(0) == ' ') {
-      c = c.substring(1)
-    }
-    if (c.indexOf(dname) == 0) {
-      return c.substring(dname.length, c.length)
-    }
+    while (c.charAt(0) == ' ') { c = c.substring(1) }
+    if (c.indexOf(dname) == 0) { return c.substring(dname.length, c.length) }
   }
   return "";
 }
@@ -145,8 +138,7 @@ function getCookie(name) {
 function setCookie(name, value) {
   const d = new Date();
   d.setTime(d.getTime() + (60 * 24 * 60 * 60 * 1000));
-  let expires = "expires="+d.toUTCString();
-  document.cookie = name + "=" + value + ";" + expires + ";path=/";
+  document.cookie = name + "=" + value + ";" + ("expires="+d.toUTCString()) + ";path=/";
 }
 
 updatePage()
