@@ -119,13 +119,14 @@ function handleWarning(){
 
 function startup(){
   const darkval = getCookie("lmode")
-    if(darkval != ""){
-        const nmode = darkval == "light-mode" ? "dark-mode" : "light-mode"
-        document.body.className = nmode
-        document.getElementById("modeswitchb").innerHTML = nmode == "dark-mode" ? "☀️" : "🌙"
-    }else{
-        setCookie("lmode", "light-mode")
-    }
+  console.log(darkval)
+  if(darkval != ""){
+    const nmode = darkval == "light-mode" ? "dark-mode" : "light-mode"
+    document.body.className = nmode
+    document.getElementById("modeswitchb").innerHTML = nmode == "dark-mode" ? "☀️" : "🌙"
+  }else{
+    setCookie("lmode", "light-mode")
+  }
 }
 
 function getCookie(name) {
