@@ -52,7 +52,7 @@ function updateVals(val){
   const valtargetident = val.currentTarget.parentElement.getAttribute('identifier')
   const isdeduct = val.currentTarget.parentElement.getAttribute('deduct')
 
-  valtable[valtargetcat][valtargetident] = Number.isNaN(val) || value == "" ? 0 : (isdeduct ? -parseFloat(value) : parseFloat(value))
+  valtable[valtargetcat][valtargetident] = Number.isNaN(val) || value == "" || value < 0 ? 0 : (isdeduct ? -parseFloat(value) : parseFloat(value))
   //God i love ternaries.
   updatePage()
 }
