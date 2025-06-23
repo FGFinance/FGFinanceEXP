@@ -16,10 +16,10 @@ body.dark-mode{
   --universalbackground: rgb(26, 26, 26);
   --universalbackgrounda: rgba(26, 26, 26, 0.85);
   --universalblack: rgb(10, 10, 10);
-  --universalfont: rgb(229, 229, 229);
+  --universalfont: rgb(217, 217, 217);
   --universalbackd: rgb(20,20,20);
   --universalbackd2: rgb(10,10,10);
-  --universalborder: rgb(78, 78, 78);
+  --universalborder: rgb(48, 48, 48);
   --rslogo: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="30"><text fill="white" x="5" y="17.6" style="font: 14px Arial;">R$</text></svg>');
 }
 
