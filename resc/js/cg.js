@@ -26,10 +26,10 @@ let tabWarn = { //How many % you can spend in each.
 
 let listOfSwears = { //String that should be displayed when tabWarn treshold is met.
   "casa": "<br>Enquanto os gastos em casa são importantes, precisa garantir que não está gastando muito. Tente gastar menos em áreas como Internet ou Telefone.",
-  "alimentacao": "<br>",
+  "alimentacao": "<br>Tem certeza que esses gastos em alimentação são normais? Considere investigar se não está gastando muito em comida desnecessária.<br>(caso você gerencie uma família grande, ignore esse aviso)",
   "saude": "<br>Saúde é importante, porém os gastos nesse setor estão anormais. Considere verificar aonde seu dinheiro esta indo.",
   "transporte": "<br>",
-  "lazer": "<br>",
+  "lazer": "<br>Lazer é uma área não crucial, porém mostra uma saída fora de nossa recomendação.",
 }
 
 let totals = {} //Total of each category, used for parsing percentages
