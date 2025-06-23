@@ -44,16 +44,6 @@ header{
   border-width: 0px 0px 4px 0px;
 }
 
-.funnybar{
-  display: inline-block;
-  border-radius: 5px;
-  margin-top: 5%;
-  margin-left: 25px;
-  width: 10%;
-  height: 90%;
-  background-image: linear-gradient(aliceblue 20%, red 20%, yellow 20%)
-}
-
 #num1{
   color: aliceblue;
   margin: 5px;
