@@ -28,7 +28,7 @@ let listOfWarns = { //String that should be displayed when tabWarn treshold is m
   "casa": "<br>Enquanto os gastos em casa são importantes, precisa garantir que não está gastando muito. Tente gastar menos em áreas como Internet ou Telefone.",
   "alimentacao": "<br>Tem certeza que esses gastos em alimentação são normais? Considere investigar se não está gastando muito em comida desnecessária.<br>(caso você gerencie uma família grande, ignore esse aviso)",
   "saude": "<br>Saúde é importante, porém os gastos nesse setor estão anormais. Considere verificar aonde seu dinheiro esta indo.",
-  "transporte": "<br>",
+  "transporte": "<br>Parece ter uma saída grande em transporte. Caso esteja gastando muito em manutenção, considere alternativas temporárias até que consiga melhorar seu estado financeiro. Caso esteja gastando com transporte público ou de aplicativo, considere métodos mais baratos.",
   "lazer": "<br>Lazer é uma área não crucial, porém mostra uma saída fora de nossa recomendação.",
 }
 
@@ -46,7 +46,7 @@ document.querySelectorAll('.cat-input').forEach(i => { //For each input section 
   i.childNodes[1].setAttribute('value', 0.00)
 })
 
-function updateVals(val){
+function updateVals(val) {
   let value = (val.currentTarget.value).replace(",", "") //Replace the , with  .
   const valtargetcat = val.currentTarget.parentElement.parentElement.getAttribute('id') //Get the id
   const valtargetident = val.currentTarget.parentElement.getAttribute('identifier') //Get the identifier (different from id)
@@ -70,13 +70,13 @@ function updatePage() {
     if (i != "income") { finalvalue += total } else { incomium = total }
   }
   totfinal = (incomium - finalvalue)
-  
+
   for (i in valtable) {
     const total = totals[i];
     let text = ''
     const percent = (i !== "income" && finalvalue !== 0) ? (total / finalvalue * 100).toFixed(1) : '';
     const extra = percent ? ` - ${percent}%` : '';
-    if(i!='income'){
+    if (i != 'income') {
       text = `R$${total.toLocaleString('pt-br', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} | ${extra == "" ? "0.0%" : extra}`
       document.getElementById(`side${i}`).querySelector('p').innerHTML = text
       document.getElementById(`side${i}`).querySelector('p').style.color = percent >= tabWarn[i] && (totfinal < (incomium * 0.15)) ? 'rgb(208, 0, 0)' : 'var(--universalfont)'
@@ -84,11 +84,11 @@ function updatePage() {
     }
     document.getElementById(i).querySelectorAll('.cat-end')[0].innerHTML = `Total: R$${total.toLocaleString('br', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ${extra}`;
   }
-  
+
   document.getElementById('incomef').innerHTML = incomium.toLocaleString('br', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
 
   document.getElementById('spendingst').innerHTML = finalvalue.toLocaleString('br', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
-  
+
   document.getElementById('finals').innerHTML = totfinal.toLocaleString('br', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
 
   if (parseFloat(document.getElementById('finals').innerHTML) < 0) {
@@ -100,14 +100,14 @@ function updatePage() {
   handleWarning()
 }
 
-function handleWarning(){
+function handleWarning() {
   for (i in valtable) {
     let total = totals[i];
     let percent = (i !== "income" && finalvalue !== 0) ? (total / finalvalue * 100).toFixed(1) : 0;
-    if(i !== 'income' && percent >= tabWarn[i] && (totfinal < (incomium * 0.15))){
+    if (i !== 'income' && percent >= tabWarn[i] && (totfinal < (incomium * 0.15))) {
       document.getElementById(i).querySelectorAll('.cat-end')[0].style.color = 'rgb(208, 0, 0)'
       document.getElementById(i).querySelectorAll('.cat-end')[0].innerHTML += ` <i class="smalluseless">${listOfWarns[i]}</i>`
-    }else{
+    } else {
       document.getElementById(i).querySelectorAll('.cat-end')[0].style.color = 'var(--universalfont)' //didn't actually think this would work lmao
     }
   }
