@@ -99,6 +99,44 @@ a:visited {
   color: var(--universalfont);
 }
 
+.dropbtn{
+  color: var(--universalfont);
+  border: none;
+  background: none;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.dropbtn:hover{
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+}
+
+.dropdwn{
+  position: relative;
+  display: inline-block;
+}
+
+.dropcon{
+  background-color: var(--universalbackd);
+  display: none;
+  border: 2px solid var(--universalborder);
+  border-radius: 10px;
+  margin-top: 5px;
+  position: absolute;
+  min-width: 200px;
+  z-index: 1;
+}
+
+.dropcon a{
+  display: block;
+  padding: 5px;
+}
+
+.dropshow{
+  display: block;
+}
+
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {

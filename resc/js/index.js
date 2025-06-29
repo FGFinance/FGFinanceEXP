@@ -30,4 +30,21 @@ function setCookie(name, value) {
   document.cookie = name + "=" + value + ";" + ("expires="+d.toUTCString()) + ";path=/";
 }
 
+function summonDrop(ename){
+  document.getElementById(ename).classList.toggle('dropshow')
+}
+
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropcon");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('dropshow')) {
+        openDropdown.classList.remove('dropshow');
+      }
+    }
+  }
+} 
+
 startup()
