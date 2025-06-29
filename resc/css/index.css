@@ -143,6 +143,11 @@ a:visited {
   padding: 5px;
 }
 
+.dropcon b{
+  display: block;
+  padding: 5px;
+}
+
 .dropshow{
   display: block;
 }
