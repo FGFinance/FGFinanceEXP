@@ -26,7 +26,7 @@ let tabWarn = { //How many % you can spend in each.
 
 let listOfWarns = { //String that should be displayed when tabWarn treshold is met.
   "casa": "<br>Enquanto os gastos em casa são importantes, precisa garantir que não está gastando muito. Tente gastar menos em áreas como Internet ou Telefone.",
-  "alimentacao": "<br>Tem certeza que esses gastos em alimentação são normais? Considere investigar se não está gastando muito em comida desnecessária.<br>(caso você gerencie uma família grande, ignore esse aviso)",
+  "alimentacao": "<br>Tem certeza que esses gastos em alimentação são normais? Considere investigar se não está gastando muito em comida desnecessária.<br>(Caso você tenha uma família grande, esse aviso pode ser ignorado.)",
   "saude": "<br>Saúde é importante, porém os gastos nesse setor estão anormais. Considere verificar aonde seu dinheiro esta indo.",
   "transporte": "<br>Parece ter uma saída grande em transporte. Caso esteja gastando muito em manutenção, considere alternativas temporárias até que consiga melhorar seu estado financeiro. Caso esteja gastando com transporte público ou de aplicativo, considere métodos mais baratos.",
   "lazer": "<br>Lazer é uma área não crucial, porém mostra uma saída fora de nossa recomendação.",
