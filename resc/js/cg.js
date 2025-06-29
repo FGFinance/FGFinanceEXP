@@ -58,7 +58,6 @@ function updateVals(val){
 }
 
 function updatePage() {
-  let text = ''
   finalvalue = 0
   incomium = 0
 
@@ -73,12 +72,16 @@ function updatePage() {
   totfinal = (incomium - finalvalue)
   
   for (i in valtable) {
-    let total = totals[i];
-    let percent = (i !== "income" && finalvalue !== 0) ? (total / finalvalue * 100).toFixed(1) : '';
-    let extra = percent ? ` - ${percent}%` : '';
+    const total = totals[i];
+    let text = ''
+    const percent = (i !== "income" && finalvalue !== 0) ? (total / finalvalue * 100).toFixed(1) : '';
+    const extra = percent ? ` - ${percent}%` : '';
     //Since all the different sidebar categories are a single string they're unable to be colored when exceeding the limit... for now, that is.
-    if(i!='income'){text = text + `${i == 'casa' ? "" : "<br>"}` + `${format[i]}: R$${total.toLocaleString('br', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ${extra}`}
-    document.getElementById('catover').innerHTML = text
+    if(i!='income'){
+      text = `R$${total.toLocaleString('pt-br', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} | ${extra == "" ? "0.0%" : extra}`
+      document.getElementById(`side${i}`).querySelector('p').innerHTML = text
+      document.getElementById(`side${i}`).querySelector('meter').setAttribute('value', percent)
+    }
     document.getElementById(i).querySelectorAll('.cat-end')[0].innerHTML = `Total: R$${total.toLocaleString('br', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ${extra}`;
   }
   

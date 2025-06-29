@@ -9,6 +9,7 @@
   --universalblack: rgb(10,10,10);
   --universalfont: black;
   --universalborder: rgb(6, 32, 28);
+  --doireallyhavetobebold: bold;
 }
 
 body.dark-mode{
@@ -19,6 +20,7 @@ body.dark-mode{
   --universalbackd: rgb(20,20,20);
   --universalbackd2: rgb(10,10,10);
   --universalborder: rgb(78, 78, 78);
+  --doireallyhavetobebold: normal;
 }
 
 body{
@@ -72,7 +74,7 @@ footer{
 
 @media (max-width: 767.98px) {
   footer{
-    font-size: .4em;
+    font-size: .6em;
   }
 }
 
