@@ -63,10 +63,10 @@ footer{
   border: 2px solid var(--universalborder);
   border-bottom: 0px;
   margin-top: 50px;
-  margin-right: 15px;
+  margin-right: 20px;
   margin-bottom: -50px;
   display: flexbox;
-  width: 99.5%;
+  width: 99.2%;
   background-color: var(--universalbackd);
   padding: 20px;
   padding-bottom: 40px;
