@@ -70,6 +70,12 @@ footer{
   padding-bottom: 40px;
 }
 
+@media (max-width: 767.98px) {
+  footer{
+    font-size: .4em;
+  }
+}
+
 #leftside{
   font-family: Montserrat;
 }
