@@ -24,7 +24,7 @@ let tabWarn = { //How many % you can spend in each.
   "lazer": 10
 }
 
-let listOfSwears = { //String that should be displayed when tabWarn treshold is met.
+let listOfWarns = { //String that should be displayed when tabWarn treshold is met.
   "casa": "<br>Enquanto os gastos em casa são importantes, precisa garantir que não está gastando muito. Tente gastar menos em áreas como Internet ou Telefone.",
   "alimentacao": "<br>Tem certeza que esses gastos em alimentação são normais? Considere investigar se não está gastando muito em comida desnecessária.<br>(caso você gerencie uma família grande, ignore esse aviso)",
   "saude": "<br>Saúde é importante, porém os gastos nesse setor estão anormais. Considere verificar aonde seu dinheiro esta indo.",
@@ -48,9 +48,9 @@ document.querySelectorAll('.cat-input').forEach(i => { //For each input section 
 
 function updateVals(val){
   let value = (val.currentTarget.value).replace(",", "") //Replace the , with  .
-  const valtargetcat = val.currentTarget.parentElement.parentElement.getAttribute('id')
-  const valtargetident = val.currentTarget.parentElement.getAttribute('identifier')
-  const isdeduct = val.currentTarget.parentElement.getAttribute('deduct')
+  const valtargetcat = val.currentTarget.parentElement.parentElement.getAttribute('id') //Get the id
+  const valtargetident = val.currentTarget.parentElement.getAttribute('identifier') //Get the identifier (different from id)
+  const isdeduct = val.currentTarget.parentElement.getAttribute('deduct') //Check if it's the specil deduct field.
 
   valtable[valtargetcat][valtargetident] = Number.isNaN(val) || value == "" || value < 0 ? 0 : (isdeduct ? -parseFloat(value) : parseFloat(value))
   //God i love ternaries.
@@ -76,6 +76,7 @@ function updatePage() {
     let total = totals[i];
     let percent = (i !== "income" && finalvalue !== 0) ? (total / finalvalue * 100).toFixed(1) : '';
     let extra = percent ? ` - ${percent}%` : '';
+    //Since all the different sidebar categories are a single string they're unable to be colored when exceeding the limit... for now, that is.
     if(i!='income'){text = text + `${i == 'casa' ? "" : "<br>"}` + `${format[i]}: R$${total.toLocaleString('br', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ${extra}`}
     document.getElementById('catover').innerHTML = text
     document.getElementById(i).querySelectorAll('.cat-end')[0].innerHTML = `Total: R$${total.toLocaleString('br', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ${extra}`;
@@ -102,9 +103,9 @@ function handleWarning(){
     let percent = (i !== "income" && finalvalue !== 0) ? (total / finalvalue * 100).toFixed(1) : 0;
     if(i !== 'income' && percent >= tabWarn[i] && (totfinal < (incomium * 0.15))){
       document.getElementById(i).querySelectorAll('.cat-end')[0].style.color = 'rgb(208, 0, 0)'
-      document.getElementById(i).querySelectorAll('.cat-end')[0].innerHTML += ` <i class="smalluseless">${listOfSwears[i]}</i>`
+      document.getElementById(i).querySelectorAll('.cat-end')[0].innerHTML += ` <i class="smalluseless">${listOfWarns[i]}</i>`
     }else{
-      document.getElementById(i).querySelectorAll('.cat-end')[0].style.color = 'var(--universalfont)'
+      document.getElementById(i).querySelectorAll('.cat-end')[0].style.color = 'var(--universalfont)' //didn't actually think this would work lmao
     }
   }
 }
