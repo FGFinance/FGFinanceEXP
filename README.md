@@ -3,4 +3,6 @@
 
  No momento, a unica ferramenta disponivel é a [Calculadora de Gastos](https://fgfinance.github.io/FGFinance/calcgastos.html).
 
+ Decidimos seguir um caminho pouco diferente comparado a outros projetos, divergendo de websites informativos para uma provedora de ferramentas que busca não apenas informar, mas também ajudar no entendimento sobre a educação financeira disponibilizando ferramentas que tornam um processo repetitivo, confuso ou simplesmente desconhecido em algo fácil e rápido sem reter qualquer tipo de informação do usuário, garantindo que o unico a ser beneficiado seja o cliente.
+
  Desenvolvido especialmente para o Hackathon da [Ctrl+Play](https://ctrlplay.com.br/)
