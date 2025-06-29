@@ -18,11 +18,14 @@ h1{
 }
 
 #sidebar{
+  position: sticky;
+  top: 0;
   float: right;
   background-color: var(--universalbackd);
   border-radius: 15px;
   width: 30%;
   margin-top: 10px;
+  margin-bottom: 20px;
   margin-right: 20px;
 }
 
