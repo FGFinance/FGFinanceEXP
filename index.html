@@ -9,12 +9,13 @@
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.12.1/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="./resc/css/index.css">
+  <link rel="stylesheet" href="./resc/css/main.css">
   <link rel="icon" type="image/png" href="resc/img/FGLight.png?v=2" />
 </head>
 <header>
   <!--TODO: Logo--> <!--Will we ever even get a logo? I don't want to ask GPT to do it, it's too lazy.-->
   <b style="font-size: 1.5em;" id="thename"><i>FG Finanças</i></b>
-  // 
+  //
   <div class="dropdwn">
     <button class="dropbtn" onclick="summonDrop('toolDrop')">Ferramentas</button>
     <div id="toolDrop" class="dropcon">
@@ -24,7 +25,7 @@
   </div>
   //
   <a href="./sobre.html">Sobre Nós</a>
-  
+
   <button id="modeswitchb" onclick="switchMode()">🌙</button>
 </header>
 
@@ -32,15 +33,39 @@
   <h1>Bem vindo a FG Finanças!</h1>
   Aqui, você encontra ferramentas diversas que ajudam no seu gerenciamento monetário, ao mesmo tempo providenciando
   informação que te ajudará a melhor manejar seu dinheiro, controlar seus gastos e saber exatamente suas maiores fontes
-  de saída.
-  <br>
+  de déficit.
+  <br> <br>
+  <h1>Nossas ferramentas:</h1>
+  <div class="tooldiv">
+    <h3>Calculadora de Gastos</h3>
+    <img src="resc/img/calgscreen.png" alt="Captura de tela da Calculadora de Gastos" width="20%"> <br>
+    A Calculadora de Gastos da FG Finanças é uma ferramenta simples, porém extremamente útil e versátil. <br><br>
+    Você já se perguntou para onde seu dinheiro vai? Por que sempre fica com tão pouco após o fim de cada mês? Parece
+    bobo, mas a
+    Calculadora de Gastos pode te ajudar.
+    <br>
+    A única coisa que você precisa fazer é inserir a devida informação em seus campos (como o seu aluguel, quanto paga
+    em
+    despesas, etc.), inserir sua renda, e a calculadora automaticamente analizará suas áreas de maior gasto, deixando
+    elas
+    em destaque e providenciando uma sugestão básica de como você poderia melhorar seus gastos em tal área.
+    <br>
+    E o melhor? Nenhuma dessa informação é enviada para qualquer lugar! Tudo é feito no seu navegador de forma simples,
+    rápida e fácil, assim eliminando qualquer preocupação com privacidade e garantindo que o unico que saia beneficiado
+    seja você!
+
+    <br>
+    <i class="smalluseless">(Lembre-se que a calculadora não sabe de tudo! De vez em quando, as sugestões podem não ser
+      as melhores. Por isso, busque investigar por contra própria.)</i>
+  </div>
+
 
 </body>
 
 <footer>
   <div id="footdiv">
     <div id="rightside">
-      <a href="./index.html">Pagina Principal</a> <br>
+      <a href="./index.html">Página Principal</a> <br>
       <a href="./calcgastos.html">Calculadora de Gastos</a> <br>
       <a href="./calcinvest.html">Calculadora de Investimentos</a> <br>
       <a href="./sobre.html">Sobre Nós</a>

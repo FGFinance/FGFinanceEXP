@@ -1,0 +1,21 @@
+.tooldiv{
+  background-color: var(--universalbackgrounda);
+  border: 2px solid var(--universalborder);
+  padding: 5px;
+  border-radius: 10px;
+  width: 85%;
+}
+
+h3{
+  text-decoration: underline;
+  margin-bottom: 8px;
+}
+
+img{
+  border-radius: 4px;
+}
+
+img:hover{
+  width: 40%;
+  box-shadow: 2px 2px 10px var(--universalborder);
+}
