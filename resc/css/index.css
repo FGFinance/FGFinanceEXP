@@ -13,6 +13,10 @@
   --darkmodeimage: invert(0%);
 }
 
+button{
+  cursor: pointer;
+}
+
 body.dark-mode{
   --universalbackground: rgb(26, 26, 26);
   --universalbackgrounda: rgba(26, 26, 26, 0.85);
