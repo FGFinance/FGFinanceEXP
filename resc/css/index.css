@@ -10,6 +10,7 @@
   --universalfont: black;
   --universalborder: rgb(6, 32, 28);
   --doireallyhavetobebold: bold;
+  --darkmodeimage: invert(0%);
 }
 
 body.dark-mode{
@@ -21,6 +22,7 @@ body.dark-mode{
   --universalbackd2: rgb(10,10,10);
   --universalborder: rgb(78, 78, 78);
   --doireallyhavetobebold: normal;
+  --darkmodeimage: invert(100%);
 }
 
 body{
@@ -30,6 +32,10 @@ body{
   background-image: url('../svg/swiggity.svg');
   background-color: var(--universalbackground);
   color: var(--universalfont);
+}
+
+#mocklogo{
+  filter: var(--darkmodeimage);
 }
 
 h1{
