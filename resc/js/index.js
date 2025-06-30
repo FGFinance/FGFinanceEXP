@@ -6,6 +6,12 @@ function switchMode(){
   document.getElementById("modeswitchb").innerHTML = nmode == "dark-mode" ? "☀️" : "🌙"
 }
 
+function detectMobile(){
+  if(window.matchMedia('screen and (max-width: 767.98px)').matches){
+    document.getElementById('thename').childNodes[0].innerHTML = 'FG'
+  }
+}
+
 function startup(){
   const darkval = getCookie("lmode")
   if(darkval != ""){
@@ -47,4 +53,5 @@ window.onclick = function(event) {
   }
 } 
 
+detectMobile()
 startup()
