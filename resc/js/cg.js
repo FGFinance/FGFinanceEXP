@@ -75,7 +75,7 @@ function updatePage() {
     const total = totals[i];
     let text = ''
     const percent = (i !== "income" && finalvalue !== 0) ? (total / finalvalue * 100).toFixed(1) : '';
-    const extra = percent ? ` - ${percent}%` : '';
+    const extra = percent ? ` ${percent}%` : '';
     if (i != 'income') {
       text = `R$${total.toLocaleString('pt-br', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} | ${extra == "" ? "0.0%" : extra}`
       document.getElementById(`side${i}`).querySelector('p').innerHTML = text
