@@ -1,14 +1,19 @@
+let btnText = ""
+
 function switchMode(){
   const cmode = document.body.className
   const nmode = cmode == "light-mode" ? "dark-mode" : "light-mode"
   setCookie("lmode", nmode)
   document.body.className = nmode
-  document.getElementById("modeswitchb").innerHTML = nmode == "dark-mode" ? "☀️" : "🌙"
+  document.getElementById("modeswitchb").innerHTML = (nmode == "dark-mode" ? "☀️" : "🌙") + btnText
 }
 
 function detectMobile(){
   if(window.matchMedia('screen and (max-width: 767.98px)').matches){
+    btnText = ""
     document.getElementById('thename').childNodes[0].innerHTML = 'FG'
+  }else{
+    btnText = "Alterar Modo"
   }
 }
 
@@ -16,7 +21,7 @@ function startup(){
   const darkval = getCookie("lmode")
   if(darkval != ""){
     document.body.className = darkval
-    document.getElementById("modeswitchb").innerHTML = darkval == "dark-mode" ? "☀️" : "🌙"
+    document.getElementById("modeswitchb").innerHTML = (darkval == "dark-mode" ? "☀️" : "🌙") + btnText
   }else{ setCookie("lmode", "light-mode") }
 }
 
@@ -33,7 +38,7 @@ function getCookie(name) {
 function setCookie(name, value) {
   const d = new Date();
   d.setTime(d.getTime() + (60 * 24 * 60 * 60 * 1000));
-  document.cookie = name + "=" + value + ";" + ("expires="+d.toUTCString()) + ";path=/";
+  document.cookie = name + "=" + value + ";" + ("expires="+d.toUTCString()) + ";path=/;SameSite=Strict;";
 }
 
 function summonDrop(ename){
