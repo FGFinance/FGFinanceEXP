@@ -9,6 +9,7 @@ function switchMode(){
 }
 
 function detectMobile(){
+  const darkval = getCookie("lmode")
   if(window.matchMedia('screen and (max-width: 767.98px)').matches){
     btnText = ""
     document.getElementById('thename').childNodes[0].innerHTML = 'FG'
@@ -16,6 +17,7 @@ function detectMobile(){
     btnText = "Alterar Modo"
     document.getElementById('thename').childNodes[0].innerHTML = 'FG Finanças'
   }
+  document.getElementById("modeswitchb").innerHTML = (darkval == "dark-mode" ? "☀️" : "🌙") + btnText
 }
 
 function startup(){
