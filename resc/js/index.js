@@ -14,6 +14,7 @@ function detectMobile(){
     document.getElementById('thename').childNodes[0].innerHTML = 'FG'
   }else{
     btnText = "Alterar Modo"
+    document.getElementById('thename').childNodes[0].innerHTML = 'FG Finanças'
   }
 }
 
@@ -57,6 +58,8 @@ window.onclick = function(event) {
     }
   }
 } 
+
+window.onresize = detectMobile;
 
 detectMobile()
 startup()
