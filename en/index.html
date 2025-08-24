@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FG-eX - Main Page</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.12.1/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../resc/css/index.css">
+  <link rel="stylesheet" href="../resc/css/main.css">
+  <link rel="icon" type="./image/png" href="../resc/img/FGLight.png?v=2" />
+</head>
+<header>
+  <b style="font-size: 1.5em;" id="thename"><i>FG Finances eX</i></b>
+  //
+  <div class="dropdwn">
+    <button class="dropbtn" onclick="summonDrop('toolDrop')">Tools</button>
+    <div id="toolDrop" class="dropcon">
+      <a href="./expcalc.html">Expense Calculator</a>
+      <a href="https://www.youtube.com/watch?v=mo3IcdF41h0">Investment Calculator (WIP)</a>
+    </div>
+  </div>
+  //
+  <a href="./sobre.html">About us</a>
+
+  <button id="modeswitchb" onclick="switchMode(); upScr()">🌙 Swap Mode</button>
+</header>
+
+<body>
+  <h1>Welcome to FG-eX!</h1>
+  Here, you find various tools that help you in managing your finances while getting knowledge that will help you better
+  handle your money, control your expenses and know exactly what your biggest expenses are.
+  <br>
+  What's different, you may ask? Quite simple. This is the experimental website. Content in here is unfinished, buggy,
+  or plain garbage. Pick your poison!
+  <br> <br>
+  <h1>Our tools:</h1>
+  <div class="tooldiv">
+    <h3><a href="./calcgastos.html">Expense Calculator</a></h3>
+    <img src="../resc/img/calgscreen.png" alt="Captura de tela da Calculadora de Gastos" width="20%" id="cgscreen"> <br>
+    The FG Finances Expense Calculator is a simple tool, but in the right hands can be very useful.<br><br>
+    Have you ever wondered where all your money goes? Why your bank account is empty after the end of each month? It
+    sounds silly, but the Expense Calculator can help you!
+    <br>
+    The only thing you have to do is put in your monthly income, fill out all the fields (such as you rent, how much you
+    spend in food, fuel, etc.) and the calculator will do everything else for you! It'll quickly analyze your expenses,
+    highlight the areas of highest deficit and provide a quick solution to what you should do towards it.
+    <br>
+    And the best part? None of this information leaves your device! Everything is calculated in your browser in a quick
+    and simple way, ensuring your privacy is secure and the only one coming out on top is YOU!
+    E o melhor? Nenhuma dessa informação é enviada para qualquer lugar! Tudo é feito no seu navegador de forma simples,
+    rápida e fácil, assim eliminando qualquer preocupação com privacidade e garantindo que o unico que saia beneficiado
+    seja você!
+
+    <br>
+    <i class="smalluseless">(Please note that the calculator can not know everything about your life. Not all
+      suggestions can be accurate towards your situation. Please seek to examine your expenses on your own to avoid any
+      misinformation.)</i>
+  </div>
+  <br>
+  <div class="tooldiv">
+    <h3>Calculadora de Investimentos</h3>
+    <img src="../resc/img/underconstruction.jpg" alt="Captura de tela da Calculadora de Gastos" width="20%"> <br>
+    A Calculadora de Investimentos da FG Finanças é uma ferramenta que ainda está sobre fase de planejamento, porém já
+    temos a ideia base de como ela funcionará. <br><br>
+    Investir, algo que alguns evitam pela complexidade e outros entram sem saber como funciona. Por que não facilitar o
+    processo?
+    <br>
+    Investimentos podem variar de processos simples para complexos, com niveís de risco, diversos impostos e muitas
+    escolhas diferentes apresentadas. Existem investimentos seguros onde você adquire uma renda passiva com risco mínimo
+    como o CDB, Tesouro Direto, entre outros. Esses tipos de investimento são os mais recomendados para iniciantes, e
+    são eles que a calculadora busca operar com.
+    <br>
+    O objetivo da Calculadora de Investimentos é simples: Calcule qual seria a renda final após x meses de investimento
+    com y% de renda mensal. Simples, porém efetivo. Aqueles que sabem como funciona teriam uma interface mais simples de
+    se utilizar, e aqueles que não sabem tem uma oportunidade de aprender como fazer e ao mesmo tempo receber resultados
+    imediatamente.
+    <br>
+    <i class="smalluseless">(Should you try to access the tool, it'll just send you to a funny ASMR video. Sorry :/)</i>
+  </div>
+
+
+</body>
+
+<footer>
+  <div id="footdiv">
+    <div id="rightside">
+      <a href="./index.html">Main Page</a> <br>
+      <a href="./expcalc.html">Expense Calculator</a> <br>
+      <a href="https://www.youtube.com/watch?v=mo3IcdF41h0">Investment Calculator</a> <br>
+      <a href="./sobre.html">About Us</a>
+    </div>
+    <div id="leftside">
+      <h3>FG Finances eXPERIMENTAL</h3>
+      <p class="smalluseless">The content of this website is licensed under the <a
+          href="https://www.gnu.org/licenses/gpl-3.0.en.html">GNU General Public License v3</a></p>
+      <p class="smalluseless">The source code can also be found in <a
+          href="https://github.com/FGFinance/FGFinanceEXP/">GitHub</a></p>
+    </div>
+  </div>
+</footer>
+
+<script src="../resc/js/index.js"></script>
+<script>
+  function upScr() {
+    const cmode = document.body.className
+    const imgname = cmode == 'dark-mode' ? '../resc/img/calgscreen.png' : '../resc/img/calgscreenl.png'
+    document.getElementById('cgscreen').setAttribute('src', imgname)
+  }
+  upScr() 
+</script>
+<!--Base script simply for loading the dark mode status from browser cookies.-->
+
+</html>

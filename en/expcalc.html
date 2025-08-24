@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <title>FG Finanças - Calculadora de Gastos</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.12.1/font/bootstrap-icons.min.css">
+  <link rel="icon" type="image/png" href="../../resc/img/FGLight.png?v=2" />
+  <link rel="stylesheet" href="../../resc/css/index.css" class="css-stable">
+  <link rel="stylesheet" href="../../resc/css/cgs.css" class="css-stable">
+</head>
+
+<header>
+  <b style="font-size: 1.5em;" id="thename"><a href="./index.html">FG Finances</a></b>
+  //
+  <div class="dropdwn">
+    <button class="dropbtn" onclick="summonDrop('toolDrop')">Tools</button>
+    <div id="toolDrop" class="dropcon">
+      <b><i>Expense Calculator</i></b>
+      <a href="https://www.youtube.com/watch?v=mo3IcdF41h0">Investment Calculator (WIP)</a>
+    </div>
+  </div>
+  //
+  <a href="./sobre.html">About Us</a>
+  <button id="modeswitchb" onclick="switchMode()">🌙</button>
+</header>
+
+<body class="light-mode">
+  <div id="start">
+    <h1>Expense Calculator</h1>
+    <div id="sidebar">
+      <aside>
+        <div id="sidebar-start">
+          Summary
+        </div>
+        <div id="sidebar-random">
+          <div class="sidebarcat" id="sidehome">
+            <div class="sidecatstart" style="background-color: rgb(0, 92, 191);">
+              HOUSING
+            </div>
+            <div class="sidecatcontent">
+              <meter value="35" min="0" low="1" high="35" max="100" optimum="35"></meter>
+              <br>
+              <p>R$1.500 | 50%</p>
+            </div>
+          </div>
+          <div class="sidebarcat" id="sidefood">
+            <div class="sidecatstart" style="background-color: rgb(213, 174, 0);">
+              FOOD
+            </div>
+            <div class="sidecatcontent">
+              <meter value="25" min="0" low="1" high="25" max="100" optimum="25"></meter>
+              <br>
+              <p>R$1.500 | 50%</p>
+            </div>
+          </div>
+          <div class="sidebarcat" id="sidehealth">
+            <div class="sidecatstart" style="background-color: rgb(201, 0, 0);">
+              HEALTH
+            </div>
+            <div class="sidecatcontent">
+              <meter value="15" min="0" low="1" high="15" max="100" optimum="15"></meter>
+              <br>
+              <p>R$1.500 | 50%</p>
+            </div>
+          </div>
+          <div class="sidebarcat" id="sidetransport">
+            <div class="sidecatstart" style="background-color: rgb(95, 95, 95);">
+              TRANSPORT
+            </div>
+            <div class="sidecatcontent">
+              <meter value="15" min="0" low="1" high="15" max="100" optimum="15"></meter>
+              <br>
+              <p>R$1.500 | 50%</p>
+            </div>
+          </div>
+          <div class="sidebarcat" id="sidemisc">
+            <div class="sidecatstart" style="background-color: rgb(189, 14, 154);">
+              MISCELLANEOUS
+            </div>
+            <div class="sidecatcontent">
+              <meter value="10" min="0" low="1" high="10" max="100" optimum="10"></meter>
+              <br>
+              <p>R$1.500 | 50%</p>
+            </div>
+          </div>
+        </div>
+        <div id="sidebar-end">
+          Renda: R$<b id='incomef'>0</b><br>
+          Despesas: R$<b id="spendingst">0</b> <br>
+          Total: R$<b id="finals">0</b>
+        </div>
+      </aside>
+    </div>
+    <div id="cats">
+      <div id="income" class="cat">
+        <div class="cat-start" style="background-color: rgb(8, 126, 0);">
+          <img src="../resc/img/salary.png" alt="" width="4%">
+          RENDA MENSAL
+        </div>
+        <div class="cat-input">
+          Renda Fixa <input type="number" name="" id="">
+        </div>
+        <div class="cat-input">
+          Renda Extra <input type="number" name="" id="">
+        </div>
+        <div class="cat-input" deduct="true">
+          Deduções (Dívidas e Similares) <input type="number" name="" id="">
+        </div>
+        <div class="cat-end">
+          Total: R$0
+        </div>
+      </div>
+      <div id="home" class="cat">
+        <div class="cat-start" style="background-color: rgb(0, 92, 191);">
+          <img src="../resc/img/house.png" alt="" width="4%">
+          CASA
+        </div>
+        <div class="cat-input">
+          Aluguel
+          <input type="number">
+        </div>
+        <div class="cat-input">
+          Luz
+          <input type="number">
+        </div>
+        <div class="cat-input">
+          Água
+          <input type="number">
+        </div>
+        <div class="cat-input">
+          Gás
+          <input type="number">
+        </div>
+        <div class="cat-input">
+          Internet
+          <input type="number">
+        </div>
+        <div class="cat-input">
+          Telefone (Fixo ou Chip)
+          <input type="number">
+        </div>
+
+        <div class="cat-end">
+          Total: R$0
+        </div>
+      </div>
+      <div id="food" class="cat">
+        <div class="cat-start" style="background-color: rgb(213, 174, 0);">
+          <img src="../resc/img/almoco.png" alt="" width="4%">
+          Alimentação
+        </div>
+        <div class="cat-input">
+          Monthly Food Expenses
+          <input type="number">
+        </div>
+        <div class="cat-input">
+          Sobremesas
+          <input type="number">
+        </div>
+        <div class="cat-input">
+          Fast Food/Restaurants
+          <input type="number">
+        </div>
+        <div class="cat-end">
+          Total: R$0
+        </div>
+      </div>
+      <div id="health" class="cat">
+        <div class="cat-start" style="background-color: rgb(201, 0, 0);">
+          <img src="../resc/img/health-checkup.png" alt="" width="4%">
+          Health
+        </div>
+        <div class="cat-input">
+          Life Insurance
+          <input type="number">
+        </div>
+        <div class="cat-input">
+          Medication
+          <input type="number">
+        </div>
+        <div class="cat-input">
+          Private Hospitals/Specialists
+          <input type="number" id="n1">
+        </div>
+        <div class="cat-end">
+          Total: R$0
+        </div>
+      </div>
+      <div id="transport" class="cat">
+        <div class="cat-start" style="background-color: rgb(95, 95, 95);">
+          <img src="../resc/img/vehicles.png" alt="" width="4%">
+          Transport
+        </div>
+        <div class="cat-input">
+          Fuel
+          <input type="number">
+        </div>
+        <div class="cat-input">
+          Maintenance
+          <input type="number">
+        </div>
+        <div class="cat-input">
+          Taxes
+          <input type="number">
+        </div>
+        <div class="cat-input">
+          App Drivers/Public Transport
+          <input type="number">
+        </div>
+        <div class="cat-end">
+          Total: R$0
+        </div>
+      </div>
+      <div id="misc" class="cat">
+        <div class="cat-start" style="background-color: rgb(189, 14, 154);">
+          <img src="../resc/img/vacations.png" alt="" width="4%">
+          Miscellaneous
+        </div>
+        <div class="cat-input">
+          Monthly Subscriptions
+          <input type="number">
+        </div>
+        <div class="cat-input">
+          Gifts
+          <input type="number">
+        </div>
+        <div class="cat-input">
+          Trips and Vacations
+          <input type="number">
+        </div>
+        <div class="cat-input">
+          Others
+          <input type="number">
+        </div>
+        <div class="cat-end">
+          Total: R$0
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+<footer>
+  <div id="footdiv">
+    <div id="rightside">
+      <a href="./index.html">Main Page</a> <br>
+      <a href="./expcalc.html">Expense Calculator</a> <br>
+      <a href="https://www.youtube.com/watch?v=mo3IcdF41h0">Investment Calculator</a> <br>
+      <a href="./sobre.html">About Us</a>
+    </div>
+    <div id="leftside">
+      <h3>FG Finances eXPERIMENTAL</h3>
+      <p class="smalluseless">The content of this website is licensed under the <a
+          href="https://www.gnu.org/licenses/gpl-3.0.en.html">GNU General Public License v3</a></p>
+      <p class="smalluseless">The source code can also be found in <a
+          href="https://github.com/FGFinance/FGFinanceEXP/">GitHub</a></p>
+    </div>
+  </div>
+</footer>
+
+<script src="../../resc/js/index.js"></script>
+<!--Base script simply for loading the dark mode status from browser cookies.-->
+<script type="text/javascript" src="../../resc/js/cg-en.js"></script>
+<!--The actual calculator part of the script. Fun, innit?-->
+
+</html>

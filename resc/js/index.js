@@ -9,13 +9,14 @@ function switchMode(){
 }
 
 function detectMobile(){
+  const lang = document.documentElement.lang
   const darkval = getCookie("lmode")
   if(window.matchMedia('screen and (max-width: 767.98px)').matches){
     btnText = ""
-    document.getElementById('thename').childNodes[0].innerHTML = 'FG'
+    document.getElementById('thename').childNodes[0].innerHTML = 'FeX'
   }else{
-    btnText = "Alterar Modo"
-    document.getElementById('thename').childNodes[0].innerHTML = 'FG Finanças'
+    btnText = (lang == "pt-br" ? "Alterar Modo" : "Swap Mode")
+    document.getElementById('thename').childNodes[0].innerHTML = 'FG-eX'
   }
   document.getElementById("modeswitchb").innerHTML = (darkval == "dark-mode" ? "☀️" : "🌙") + btnText
 }
