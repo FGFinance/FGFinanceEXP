@@ -1,0 +1,93 @@
+:root {
+  --rslogo: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="30"><text x="5" y="19" style="font: bold 16px Arial;">R$</text></svg>');
+}
+
+body.dark-mode {
+  --rslogo: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="30"><text fill="white" x="5" y="17.6" style="font: 14px Arial;">R$</text></svg>');
+}
+
+h1 {
+  text-align: left;
+  margin: 20px;
+}
+
+#num1 {
+  color: aliceblue;
+  margin: 5px;
+  border: 3px, solid, aliceblue;
+}
+
+#selbar{
+  background: var(--universalbackd);
+  border: 2px solid rgb(61, 61, 61);
+  border-radius: 20px 20px 0px 0px;
+  margin-right: 8px;
+  padding-top: 2px;
+  padding-left: 2px;
+}
+#selbar button{
+  border-radius: 15px 15px 0px 0px;
+  border: 2px solid rgb(61, 61, 61);
+  background-color: var(--universalbackd2);
+  color: var(--universalfont);
+}
+
+.hidden{
+  display: none;
+}
+
+#cats {
+  display: grid;
+  padding: 10PX;
+  background-color: var(--universalbackgrounda);
+  border: 2px solid rgb(61, 61, 61);
+  border-radius: 0px 0px 20px 20px;
+  margin-right: 8px;
+}
+
+#cats>* {
+  background-color: var(--universalbackd);
+  border-radius: 10px;
+  padding: 0px;
+  width: auto;
+  display: flexbox;
+  flex: 1;
+  margin-bottom: 10px;
+}
+
+meter{
+  width: 85%;
+  height: 10px;
+  border-radius: 10px;
+  --optimum: rgb(0, 163, 27);
+  --sub-optimum: rgb(220, 143, 0);
+  --sub-sub-optimum: rgb(193, 0, 0);
+}
+
+meter::-webkit-meter-bar {
+  background: var(--background);
+}
+
+meter:-moz-meter-optimum::-moz-meter-bar {
+  background: var(--optimum);
+}
+
+meter::-webkit-meter-optimum-value {
+  background: var(--optimum);
+}
+
+meter:-moz-meter-sub-optimum::-moz-meter-bar {
+  background: var(--sub-optimum);
+}
+
+meter::-webkit-meter-suboptimum-value {
+  background: var(--sub-optimum);
+}
+
+meter:-moz-meter-sub-sub-optimum::-moz-meter-bar {
+  background: var(--sub-sub-optimum);
+}
+
+meter::-webkit-meter-even-less-good-value {
+  background: var(--sub-sub-optimum);
+}
