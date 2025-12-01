@@ -1,10 +1,8 @@
 let btnText = ""
 
 function switchMode(){
-  const cmode = document.body.className
-  const nmode = cmode == "light-mode" ? "dark-mode" : "light-mode"
-  setCookie("lmode", nmode)
-  document.body.className = nmode
+  const nmode = document.body.className == "light-mode" ? "dark-mode" : "light-mode"
+  setCookie("lmode", nmode); document.body.className = nmode
   document.getElementById("modeswitchb").innerHTML = (nmode == "dark-mode" ? "☀️" : "🌙") + btnText
 }
 
@@ -51,10 +49,9 @@ function summonDrop(ename){
 
 window.onclick = function(event) {
   if (!event.target.matches('.dropbtn')) {
-    var dropdowns = document.getElementsByClassName("dropcon");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
+    const dropdowns = document.getElementsByClassName("dropcon");
+    for (let i = 0; i < dropdowns.length; i++) {
+      const openDropdown = dropdowns[i];
       if (openDropdown.classList.contains('dropshow')) {
         openDropdown.classList.remove('dropshow');
       }
@@ -62,7 +59,7 @@ window.onclick = function(event) {
   }
 } 
 
-window.onresize = detectMobile;
-
-detectMobile()
 startup()
+window.onresize = detectMobile;
+detectMobile()
+

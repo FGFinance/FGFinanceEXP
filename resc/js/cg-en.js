@@ -1,3 +1,12 @@
+/*
+WHAT'S NEXT FOR THE EXPENSE CALCULATOR:
+- Complete code rewrite (or at least major)
+- Add ability to save all data and then load it back up (both with localstorage and json exports)
+- Possibly add a way to compare two saved charts (will need the popup system in place... ugh)
+- Make it so users can add their own fields (I should've done this from the start)
+- Possibly fancy up/redesign parts of the calculator.
+- Procrastinate.
+*/
 let valtable = { //Each table item.
   "income": [],
   "home": [],
