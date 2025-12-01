@@ -6,6 +6,10 @@
   width: 76%;
 }
 
+.hidden {
+  display: none;
+}
+
 h3{
   text-decoration: underline;
   margin-bottom: 8px;

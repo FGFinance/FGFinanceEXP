@@ -1,10 +1,8 @@
 const yearlyrate = 14.9
-const months = 24
+const months = 12
 const monthlyrate = yearlyrate/12
 const inv = 12
-const adder = 2
-let final = 0
-let TAXES = 0
+const adder = 0
 let buildup = inv
 let buildup2 = 0
 const finrate = monthlyrate*months
@@ -23,10 +21,4 @@ for(let i = 0; i < months; i++){
   buildup += adder
 }
 
-final = (inv*(finrate/100))
-let TAXED = final*TAXES
-console.log((inv+final)-TAXED)
-console.log(inv+final)
-console.log(final)
-console.log(TAXED)
-console.log(buildup+buildup2)
+console.log(Math.floor((buildup+buildup2)*100)/100)

@@ -17,36 +17,32 @@ h1 {
   border: 3px, solid, aliceblue;
 }
 
-#selbar{
+#selbar {
   background: var(--universalbackd);
-  border: 2px solid rgb(61, 61, 61);
+  border: 2px solid var(--universalborder);
   border-radius: 20px 20px 0px 0px;
   margin-right: 8px;
   padding-top: 2px;
   padding-left: 2px;
 }
-#selbar button{
+
+#selbar button {
   border-radius: 15px 15px 0px 0px;
-  border: 2px solid rgb(61, 61, 61);
+  border: 2px solid var(--universalborder);
   background-color: var(--universalbackd2);
   color: var(--universalfont);
-}
-
-.hidden{
-  display: none;
 }
 
 #cats {
   display: grid;
   padding: 10PX;
   background-color: var(--universalbackgrounda);
-  border: 2px solid rgb(61, 61, 61);
+  border: 2px solid var(--universalborder);
   border-radius: 0px 0px 20px 20px;
   margin-right: 8px;
 }
 
 #cats>* {
-  background-color: var(--universalbackd);
   border-radius: 10px;
   padding: 0px;
   width: auto;
@@ -55,7 +51,42 @@ h1 {
   margin-bottom: 10px;
 }
 
-meter{
+#passive {
+  display: grid;
+  grid-template-columns: 1fr 0.25fr;
+}
+
+#pas-input input {
+  border: 2px solid var(--universalborder);
+  border-radius: 4px;
+  color: var(--universalfont);
+  background-color: var(--universalbackd2);
+  resize: none;
+  width: 25%;
+  font-size: .8em;
+  height: 30px;
+  margin: 5px;
+}
+
+.inline-dropdown-bt {
+  display: inline;
+  font-size: .5em;
+  border-radius: 5px;
+  border: 2px solid var(--universalborder);
+  background-color: var(--universalbackd2);
+  color: var(--universalfont);
+  margin-bottom: 8px;
+}
+
+.inline-dropdown-panel {
+  display: inline-flexbox;
+  background-color: var(--universalbackd);
+  border: 2px solid var(--universalborder);
+  padding: 6px;
+  border-radius: 15px;
+}
+
+meter {
   width: 85%;
   height: 10px;
   border-radius: 10px;

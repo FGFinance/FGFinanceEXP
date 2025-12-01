@@ -39,10 +39,23 @@
     </div>
     <div id="cats">
       <div id="passive" class="cat">
-        <input type="text" name="" id="">
-        <input type="text" name="" id="">
-        <input type="text" name="" id="">
-        <input type="text" name="" id="">
+        <div id="pas-input">
+          Initial Amount <input type="text" name="" id=""><br>
+          Monthly Investments<input type="text" name="" id=""><br>
+          Monthly Income (%)<input type="text" name="" id="">
+          <button id='pass-adv' class="inline-dropdown-bt" onclick="summonInlineDrop(this.id)">Advanced Options</button><br>
+          <div id="pass-adv-panel" class="inline-dropdown-panel hidden">
+            Minimum Variation (%) <input type="text" name="" id=""><br>
+            Maximum Variation (%) <input type="text" name="" id=""><br>
+            Minimum Value <input type="text" name="" id=""><br>
+            Maximum Value <input type="text" name="" id=""><br>
+            Initial Amount <input type="text" name="" id=""><br>
+          </div>
+          Taxes (%)<input type="text" name="" id=""><br>
+        </div>
+        <div id="pas-data">
+          bla bla bla bla bla bla bla
+        </div>
       </div>
     </div>
   </div>
@@ -68,5 +81,6 @@
 
 <script src="../resc/js/index.js"></script>
 <!--Base script simply for loading the dark mode status from browser cookies.-->
+<script src="../resc/js/inv.js"></script>
 
 </html>
